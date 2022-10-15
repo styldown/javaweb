@@ -1,6 +1,7 @@
 package com.octest.dao;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 public abstract class DAO<T> {
 public Connection connect = DAOFactory.getInstance();
@@ -35,6 +36,13 @@ public Connection connect = DAOFactory.getInstance();
 	 * retourne l'objet correspondant
 	 **/
     public abstract void lookFor(T obj);
+    
+    /**return une liste d'objet correspondant au paramettre
+     * le selcteur permet d'adapter la methode si une ou plusieurs
+     * clefs etrangere existent dans la table
+     */
+    public abstract ArrayList<T> listeOf(int id,int selecteur);
+
 } 
 
 

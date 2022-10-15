@@ -3,6 +3,7 @@ package com.octest.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.octest.beans.Factory;
 
@@ -55,6 +56,12 @@ public class FactoryDAOImpl extends DAO<Factory> {
 	public void lookFor(Factory obj) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public ArrayList<Factory> listeOf(int id, int selecteur) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

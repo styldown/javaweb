@@ -3,6 +3,7 @@ package com.octest.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.octest.beans.Authentification;
 
@@ -51,6 +52,12 @@ public class AuthentificationDAOImpl extends DAO<Authentification>{
 	     } catch (SQLException e) {
 	         e.printStackTrace();
 	        }
+	}
+
+	@Override
+	public ArrayList<Authentification> listeOf(int id, int selecteur) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

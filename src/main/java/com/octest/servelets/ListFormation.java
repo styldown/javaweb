@@ -1,6 +1,9 @@
 package com.octest.servelets;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,14 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class Principale
- */
-@WebServlet("/principale")
-public class Principale extends HttpServlet {
+import com.octest.beans.Stagiaire;
+import com.octest.dao.DAO;
+import com.octest.dao.DAOFactory;
+
+
+@WebServlet("/listformation")
+public class ListFormation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private Object ArrayList;
+	private java.util.ArrayList<Stagiaire> Stagiare;
        
-    public Principale() {
+   
+    public ListFormation() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +35,11 @@ public class Principale extends HttpServlet {
 			this.getServletContext().getRequestDispatcher("/").forward(request, response);
 			}
 		else {
-			this.getServletContext().getRequestDispatcher("/WEB-INF/principale.jsp").forward(request, response);
+			int idFromation= Integer.parseInt(request.getParameter("idFormation"));
+			DAO<Stagiaire> fac = DAOFactory.getStagiareDAO();
+			java.util.ArrayList <Stagiaire> listeStagiaire= fac.listeOf(idFromation, 0);
+			request.setAttribute("listeStagiare", listeStagiaire);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/listeformation.jsp").forward(request, response);
 		}
 	}
 

@@ -5,6 +5,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 version="3.0">
   
   
+  
   <jsp-config>
   	<jsp-property-group>
     	<url-pattern>*.jsp</url-pattern>
