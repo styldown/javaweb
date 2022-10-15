@@ -1,0 +1,60 @@
+package com.octest.dao;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.octest.beans.Utilisateur;
+
+public class UtilisateurDAOImpl extends DAO<Utilisateur> {
+
+	@Override
+	public Utilisateur find(int id) {
+		 PreparedStatement preparedStatement = null;
+		 Utilisateur utilisateur=null;
+		 try {
+	    	 
+	    	 connect = DAOFactory.getInstance();
+	    	 preparedStatement = connect.prepareStatement
+	            		("SELECT * FROM utilisateur WHERE id=?;");
+	    	 preparedStatement.setInt(1, id);
+	         ResultSet resultat= preparedStatement.executeQuery();
+	        
+	         if (resultat.next()) {
+	        	 int idFactory= resultat.getInt("factory_id") ;
+	        	 String nom= resultat.getString("nom");
+	        	 String prenom= resultat.getString("prenom");
+	        	 utilisateur= new Utilisateur(id, nom, prenom, idFactory);
+	         }
+	          
+	     } catch (SQLException e) {
+	         e.printStackTrace();
+	        }
+	     return utilisateur;
+	}
+
+	@Override
+	public Utilisateur create(Utilisateur obj) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Utilisateur update(Utilisateur obj) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(Utilisateur obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void lookFor(Utilisateur obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
