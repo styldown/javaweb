@@ -1,13 +1,13 @@
 package com.octest.dao;
 
 import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 
 import com.octest.beans.Stagiaire;
-import com.octest.beans.Utilisateur;
 
 public class StagiaireDAOImpl extends DAO<Stagiaire> {
 
