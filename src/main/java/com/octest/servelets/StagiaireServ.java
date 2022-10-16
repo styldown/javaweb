@@ -1,6 +1,7 @@
 package com.octest.servelets;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,11 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.octest.beans.Factory;
-import com.octest.beans.Formation;
 import com.octest.beans.Stagiaire;
 import com.octest.dao.DAO;
-import com.octest.dao.DAOFactory;
+import com.octest.dao.FactoryOfImpl;
 
 /**
  * Servlet implementation class Stagiaire
@@ -35,7 +34,7 @@ public class StagiaireServ extends HttpServlet {
 		else {
 			
 			int idStagiaire= Integer.parseInt(request.getParameter("idStagiaire"));
-			DAO<Stagiaire> fac = DAOFactory.getStagiareDAO();
+			DAO<Stagiaire> fac = FactoryOfImpl.getStagiareDAO();
 			Stagiaire stagiaire= fac.find(idStagiaire);
 			session.setAttribute("stagiaire", stagiaire);
 

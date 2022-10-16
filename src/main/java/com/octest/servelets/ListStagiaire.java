@@ -1,6 +1,7 @@
 package com.octest.servelets;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.octest.beans.Stagiaire;
 import com.octest.dao.DAO;
-import com.octest.dao.DAOFactory;
+import com.octest.dao.FactoryOfImpl;
 
 /**
  * Servlet implementation class ListStagiaire
@@ -37,7 +38,7 @@ public class ListStagiaire extends HttpServlet {
 			}
 		else {
 			int idFormation= Integer.parseInt(request.getParameter("idFormation"));
-			DAO<Stagiaire> fac = DAOFactory.getStagiareDAO();
+			DAO<Stagiaire> fac = FactoryOfImpl.getStagiareDAO();
 			java.util.ArrayList <Stagiaire> listeStagiaire= fac.listeOf(idFormation, 0);
 			session.setAttribute("listeStagiare", listeStagiaire);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/liststagiaire.jsp").forward(request, response);

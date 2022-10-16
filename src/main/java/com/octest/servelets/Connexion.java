@@ -1,6 +1,7 @@
 package com.octest.servelets;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.octest.beans.Factory;
 import com.octest.beans.Utilisateur;
 import com.octest.dao.DAO;
-import com.octest.dao.DAOFactory;
+import com.octest.dao.FactoryOfImpl;
 import com.octest.forms.Formulaire;
 
 
@@ -43,7 +44,7 @@ public class Connexion extends HttpServlet {
 			HttpSession session= request.getSession();
 			session.setAttribute("session", true);
 			session.setAttribute("utilisateur", utilisateur);
-			DAO<Factory> fac= DAOFactory.getFactory();
+			DAO<Factory> fac= FactoryOfImpl.getFactory();
 			factory= fac.find(utilisateur.getIdFactory());
 			session.setAttribute("factory", factory);
 			this.getServletContext().getRequestDispatcher("/principale").forward(request, response);
