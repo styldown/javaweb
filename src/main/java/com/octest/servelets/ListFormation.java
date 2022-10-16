@@ -37,7 +37,7 @@ public class ListFormation extends HttpServlet {
 			int idFactory= factory.getId();
 			DAO<Formation> fac = DAOFactory.getFormationDAO();
 			java.util.ArrayList <Formation> listFormation= fac.listeOf(idFactory, 0);
-			request.setAttribute("listFormation", listFormation);
+			session.setAttribute("listFormation", listFormation);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/listeformation.jsp").forward(request, response);
 		}
 	}

@@ -8,45 +8,42 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.octest.beans.Factory;
+import com.octest.beans.Formation;
 import com.octest.beans.Stagiaire;
 import com.octest.dao.DAO;
 import com.octest.dao.DAOFactory;
 
 /**
- * Servlet implementation class ListStagiaire
+ * Servlet implementation class Stagiaire
  */
-@WebServlet("/liststagiaire")
-public class ListStagiaire extends HttpServlet {
+@WebServlet("/stagiaire")
+public class StagiaireServ extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ListStagiaire() {
+    
+    public StagiaireServ() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session= request.getSession();
 		if(session.getAttribute("session")==null) {
 			this.getServletContext().getRequestDispatcher("/").forward(request, response);
 			}
 		else {
-			int idFormation= Integer.parseInt(request.getParameter("idFormation"));
+			
+			int idStagiaire= Integer.parseInt(request.getParameter("idStagiaire"));
 			DAO<Stagiaire> fac = DAOFactory.getStagiareDAO();
-			java.util.ArrayList <Stagiaire> listeStagiaire= fac.listeOf(idFormation, 0);
-			session.setAttribute("listeStagiare", listeStagiaire);
-			this.getServletContext().getRequestDispatcher("/WEB-INF/liststagiaire.jsp").forward(request, response);
+			Stagiaire stagiaire= fac.find(idStagiaire);
+			session.setAttribute("stagiaire", stagiaire);
+
+			this.getServletContext().getRequestDispatcher("/WEB-INF/stagiaire.jsp").forward(request, response);
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

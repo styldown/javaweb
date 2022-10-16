@@ -8,9 +8,9 @@
 </head>
 <body>
 	<%@ include file="header.jsp" %>
-	<c:forEach items="${ listFormation }" var="formation" varStatus="status">
-    <p><a href='./liststagiaire?idFormation=<c:out value="${ formation.getId() }"/>'>  
-    	N°<c:out value="${ formation.getNom() }" ></c:out></a></p>
+	<c:forEach items="${ listeStagiare }" var="stagiaire">
+    <p><a href='./stagiaire?idStagiaire=<c:out value="${ stagiaire.getId() }"/>'>  
+    	* <c:out value="${ stagiaire.getNom() } ${ stagiaire.getPrenom() }" ></c:out></a></p>
 </c:forEach>
 </body>
 </html>
