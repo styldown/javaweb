@@ -24,7 +24,7 @@ public class Principale extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session= request.getSession();
 		if(session.getAttribute("session")==null) {
-			this.getServletContext().getRequestDispatcher("/").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/connection").forward(request, response);
 			}
 		else {
 			this.getServletContext().getRequestDispatcher("/WEB-INF/principale.jsp").forward(request, response);

@@ -8,7 +8,7 @@
 </head>
 <body>
 	<%@ include file="header.jsp" %>
-	<p><a href="/liste-formations">
+	<p><a href="./listformation">
 		Liste des formations <c:out value="${ factory.getNom() }"/></a></p>
 </body>
 </html>

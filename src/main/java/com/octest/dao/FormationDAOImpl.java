@@ -5,68 +5,65 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.octest.beans.Factory;
-import com.octest.beans.Stagiaire;
+import com.octest.beans.Formation;
 
-public class StagiareDAOimpl extends DAO<Stagiaire> {
-
-	private Object ArrayList;
-	private java.util.ArrayList<Stagiaire> Stagiaire;
+public class FormationDAOImpl extends DAO<Formation>{
 
 	@Override
-	public Stagiaire find(int id) {
+	public Formation find(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Stagiaire create(Stagiaire obj) {
+	public Formation create(Formation obj) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Stagiaire update(Stagiaire obj) {
+	public Formation update(Formation obj) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void delete(Stagiaire obj) {
+	public void delete(Formation obj) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void lookFor(Stagiaire obj) {
+	public void lookFor(Formation obj) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public ArrayList<Stagiaire> listeOf(int id, int selecteur) {
-		ArrayList<Stagiaire> listStagiaire= new ArrayList<Stagiaire>();
+	public ArrayList<Formation> listeOf(int id, int selecteur) {
+		ArrayList<Formation> listFormation= new ArrayList<Formation>();
 		PreparedStatement preparedStatement = null;
-		Factory factory=null;
+		
 		 try {
 	    	 
 	    	 connect = DAOFactory.getInstance();
 	    	 preparedStatement = connect.prepareStatement
-	            		("SELECT * FROM stagiaire WHERE formation_id=?;");
+	            		("SELECT * FROM formation WHERE factory_id=?;");
 	    	 preparedStatement.setInt(1, id);
 	         ResultSet resultat= preparedStatement.executeQuery();
 	        
 	         while (resultat.next()) {
-	        	 int idFac= resultat.getInt("id") ;
+	        	 int idFor= resultat.getInt("id") ;
 	        	 String nom= resultat.getString("nom");
-	        	 String adresse= resultat.getString("adresse");
-	        	 factory= new Factory(idFac, nom, adresse);
+	        	 int idFactory= resultat.getInt("factory_id");
+	        	 Formation Formation= new Formation(idFor, nom,idFactory);
+	        	 listFormation.add(Formation);
 	         }
 	          
 	     } catch (SQLException e) {
 	         e.printStackTrace();
 	        }
-	     return factory;
+	     return listFormation;
 	}
 
 }
