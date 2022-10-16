@@ -34,13 +34,14 @@ public class ListStagiaire extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session= request.getSession();
 		if(session.getAttribute("session")==null) {
-			this.getServletContext().getRequestDispatcher("/").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/connection").forward(request, response);
 			}
 		else {
 			int idFormation= Integer.parseInt(request.getParameter("idFormation"));
 			DAO<Stagiaire> fac = FactoryOfImpl.getStagiareDAO();
 			java.util.ArrayList <Stagiaire> listeStagiaire= fac.listeOf(idFormation, 0);
 			session.setAttribute("listeStagiare", listeStagiaire);
+			session.setAttribute("idFormation", idFormation);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/liststagiaire.jsp").forward(request, response);
 		}
 	}

@@ -29,7 +29,7 @@ public class StagiaireServ extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session= request.getSession();
 		if(session.getAttribute("session")==null) {
-			this.getServletContext().getRequestDispatcher("/").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/connection").forward(request, response);
 			}
 		else {
 			
@@ -37,7 +37,8 @@ public class StagiaireServ extends HttpServlet {
 			DAO<Stagiaire> fac = FactoryOfImpl.getStagiareDAO();
 			Stagiaire stagiaire= fac.find(idStagiaire);
 			session.setAttribute("stagiaire", stagiaire);
-
+			System.out.println((request.getAttribute("idFormation")));
+			request.setAttribute("idFormation", (session.getAttribute("idFormation")));
 			this.getServletContext().getRequestDispatcher("/WEB-INF/stagiaire.jsp").forward(request, response);
 		}
 	}

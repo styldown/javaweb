@@ -6,5 +6,8 @@
       <c:if test = "${session}">
          <p><a href="./connection">Deconnection</a><p>
       </c:if>
+      
+        
+ 
 
 <hr>

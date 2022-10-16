@@ -8,6 +8,7 @@
 </head>
 <body>
 	<%@ include file="header.jsp" %>
+	<p><a href='./listformation'>Retour</a></p><br/><br/>
 	<c:forEach items="${ listeStagiare }" var="stagiaire">
     <p><a href='./stagiaire?idStagiaire=<c:out value="${ stagiaire.getId() }"/>'>  
     	* <c:out value="${ stagiaire.getNom() } ${ stagiaire.getPrenom() }" ></c:out></a></p>
