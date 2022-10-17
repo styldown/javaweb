@@ -44,8 +44,27 @@ public class StagiaireDAOImpl extends DAO<Stagiaire> {
 
 	@Override
 	public Stagiaire create(Stagiaire obj) {
-		// TODO Auto-generated method stub
-		return null;
+		PreparedStatement preparedStatement = null;
+		 try {
+	    	 
+	    	 connect = DAOFactory.getInstance();
+	    	 preparedStatement = connect.prepareStatement
+	            		("INSERT INTO stagiaire (nom, prenom, adresse, tel, email, factory_id, formation_id) VALUES (?,?,?,?,?,?,?)");
+	    	 preparedStatement.setString(1, obj.getNom());
+	    	 preparedStatement.setString(2, obj.getPrenom());
+	    	 preparedStatement.setString(3, obj.getAdresse());
+	    	 preparedStatement.setInt(4, obj.getTel());
+	    	 preparedStatement.setString(5, obj.getEmail());
+	    	 preparedStatement.setInt(6, obj.getIdFactory());
+	    	 preparedStatement.setInt(7, obj.getIdFormation());
+	         preparedStatement.execute();
+	         
+	
+	          
+	     } catch (SQLException e) {
+	         e.printStackTrace();
+	        }
+		 return obj;
 	}
 
 	@Override

@@ -9,6 +9,7 @@
 <body>
 	<%@ include file="header.jsp" %>
 	<p><a href="./listformation">
-		Liste des formations <c:out value="${ factory.getNom() }"/></a></p>
+		Liste des formations <mark><c:out value="${ factory.getNom() }"/></mark></a></p>
+	<p><a href="./ajoutstagiaire">Ajouter un nouveau stagiaire</a></p>
 </body>
 </html>

@@ -35,10 +35,10 @@ public class Connexion extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Formulaire form=new Formulaire();
 		String login = request.getParameter("login");
 		String pwd = request.getParameter("pwd");
-		Utilisateur utilisateur= form.authentification(login, pwd);
+		Formulaire formulaire= Formulaire.getInstance();
+		Utilisateur utilisateur= formulaire.authentification(login, pwd);
 		Factory factory=null;
 		if (utilisateur != null) {
 			HttpSession session= request.getSession();

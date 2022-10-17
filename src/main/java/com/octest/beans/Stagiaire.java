@@ -21,6 +21,16 @@ public class Stagiaire {
 		this.idFactory= idFactory;
 	}
 	
+	public Stagiaire(String nom, String prenom, String adresse, int tel, String email, int idFactory, int idFormation) {
+		this.nom= nom;
+		this.prenom= prenom;
+		this.adresse= adresse;
+		this.tel= tel;
+		this.email= email;
+		this.idFormation= idFormation;
+		this.idFactory= idFactory;
+	}
+	
 	public int getId() {
 		return id;
 	}
