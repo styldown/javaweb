@@ -9,7 +9,7 @@
 <body>
 	<%@ include file="header.jsp" %>
 	<p><a href='./liststagiaire?idFormation=<c:out value="${ idFormation }"/>'>Retour</a></p><br/><br/>
-	<h3> <c:out value="${ stagiaire.getNom() } ${ stagiaire.getPrenom() }"/> </h3><br/>
+	<h3> <c:out value="${ stagiaire.getNom()} ${ stagiaire.getPrenom() }"/> </h3><br/>
 	<p>
 		Adresse: <c:out value="${ stagiaire.getAdresse() }"/><br/>
 		Tel: <c:out value="${ stagiaire.getTel() }"/><br/>
