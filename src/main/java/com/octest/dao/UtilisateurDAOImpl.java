@@ -13,13 +13,14 @@ public class UtilisateurDAOImpl extends DAO<Utilisateur> {
 	public Utilisateur find(int id) {
 		 PreparedStatement preparedStatement = null;
 		 Utilisateur utilisateur=null;
+		 ResultSet resultat=null;
 		 try {
 	    	 
 	    	 connect = DAOFactory.getInstance();
 	    	 preparedStatement = connect.prepareStatement
 	            		("SELECT * FROM utilisateur WHERE id=?;");
 	    	 preparedStatement.setInt(1, id);
-	         ResultSet resultat= preparedStatement.executeQuery();
+	         resultat= preparedStatement.executeQuery();
 	        
 	         if (resultat.next()) {
 	        	 int idFactory= resultat.getInt("factory_id") ;
@@ -31,6 +32,18 @@ public class UtilisateurDAOImpl extends DAO<Utilisateur> {
 	     } catch (SQLException e) {
 	         e.printStackTrace();
 	        }
+		 finally{
+			 try {
+				 if (resultat != null)
+					 resultat.close();
+	             if (preparedStatement != null)
+	            	 preparedStatement.close();
+	             if (connect != null)
+	            	 connect.close();
+				
+			} catch (SQLException ignore) {
+			}
+		 }
 	     return utilisateur;
 	}
 

@@ -32,12 +32,11 @@ public class StagiaireServ extends HttpServlet {
 			this.getServletContext().getRequestDispatcher("/connection").forward(request, response);
 			}
 		else {
-			
+		
 			int idStagiaire= Integer.parseInt(request.getParameter("idStagiaire"));
 			DAO<Stagiaire> fac = FactoryOfImpl.getStagiareDAO();
 			Stagiaire stagiaire= fac.find(idStagiaire);
 			session.setAttribute("stagiaire", stagiaire);
-			System.out.println((request.getAttribute("idFormation")));
 			request.setAttribute("idFormation", (session.getAttribute("idFormation")));
 			this.getServletContext().getRequestDispatcher("/WEB-INF/stagiaire.jsp").forward(request, response);
 		}

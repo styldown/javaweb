@@ -36,13 +36,14 @@ public class AuthentificationDAOImpl extends DAO<Authentification>{
 	@Override
 	public void lookFor(Authentification obj) {
 		 PreparedStatement preparedStatement = null;
+		 ResultSet resultat=null;
 	     try {
 	    	 connect = DAOFactory.getInstance();
 	    	 preparedStatement = connect.prepareStatement
 	            		("SELECT * FROM authentification WHERE login= ? and pwd=?;");
 	    	 preparedStatement.setString(1, obj.getLogin());
 	         preparedStatement.setString(2, obj.getPwd());
-	         ResultSet resultat= preparedStatement.executeQuery();
+	         resultat= preparedStatement.executeQuery();
 	        
 	         if (resultat.next()) {
 	        	 obj.setId(resultat.getInt("id")) ;
@@ -52,6 +53,18 @@ public class AuthentificationDAOImpl extends DAO<Authentification>{
 	     } catch (SQLException e) {
 	         e.printStackTrace();
 	        }
+	     finally{
+			 try {
+				 if (resultat != null)
+					 resultat.close();
+	             if (preparedStatement != null)
+	            	 preparedStatement.close();
+	             if (connect != null)
+	            	 connect.close();
+				
+			} catch (SQLException ignore) {
+			}
+	     }
 	}
 
 	@Override

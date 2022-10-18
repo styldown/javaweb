@@ -12,9 +12,9 @@
 			
 			<c:out value="${ erreur }" />
 			<form method="post" action="./connection">
-            <label for="login">Login : </label>
+            <label for="login">Login : </label><br/>
             <input type="text" name="login" id="login" required/><br/>
-            <label for="login">Mot de pass : </label>
+            <label for="login">Mot de pass : </label><br/>
             <input type="password" name="pwd" id="pwd" required/><br/>
             <input type="submit" value="connecter" />
             </form>

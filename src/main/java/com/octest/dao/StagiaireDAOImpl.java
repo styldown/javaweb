@@ -15,13 +15,14 @@ public class StagiaireDAOImpl extends DAO<Stagiaire> {
 	public Stagiaire find(int id) {
 		PreparedStatement preparedStatement = null;
 		Stagiaire stagiaire=null;
+		ResultSet resultat = null;
 		 try {
 	    	 
 	    	 connect = DAOFactory.getInstance();
 	    	 preparedStatement = connect.prepareStatement
 	            		("SELECT * FROM stagiaire WHERE id=?;");
 	    	 preparedStatement.setInt(1, id);
-	         ResultSet resultat= preparedStatement.executeQuery();
+	         resultat= preparedStatement.executeQuery();
 	         
 	         if (resultat.next()) {
 	        	 int idStag= resultat.getInt("factory_id") ;
@@ -39,6 +40,18 @@ public class StagiaireDAOImpl extends DAO<Stagiaire> {
 	     } catch (SQLException e) {
 	         e.printStackTrace();
 	        }
+		 finally{
+			 try {
+				 if (resultat != null)
+					 resultat.close();
+	             if (preparedStatement != null)
+	            	 preparedStatement.close();
+	             if (connect != null)
+	            	 connect.close();
+				
+			} catch (SQLException ignore) {
+			}
+		 }
 	     return stagiaire;
 	}
 
@@ -64,6 +77,16 @@ public class StagiaireDAOImpl extends DAO<Stagiaire> {
 	     } catch (SQLException e) {
 	         e.printStackTrace();
 	        }
+		 finally{
+			 try {
+	             if (preparedStatement != null)
+	            	 preparedStatement.close();
+	             if (connect != null)
+	            	 connect.close();
+				
+			} catch (SQLException ignore) {
+			}
+		 }
 		 return obj;
 	}
 
@@ -89,6 +112,7 @@ public class StagiaireDAOImpl extends DAO<Stagiaire> {
 	public ArrayList<Stagiaire> listeOf(int id, int selecteur) {
 		ArrayList<Stagiaire> listStagiaire= new ArrayList<Stagiaire>();
 		PreparedStatement preparedStatement = null;
+		ResultSet resultat=null;
 		
 		 try {
 	    	 
@@ -96,7 +120,7 @@ public class StagiaireDAOImpl extends DAO<Stagiaire> {
 	    	 preparedStatement = connect.prepareStatement
 	            		("SELECT * FROM stagiaire WHERE formation_id=?;");
 	    	 preparedStatement.setInt(1, id);
-	         ResultSet resultat= preparedStatement.executeQuery();
+	         resultat= preparedStatement.executeQuery();
 	        
 	         while (resultat.next()) {
 	        	 int idStag= resultat.getInt("id") ;
@@ -114,6 +138,18 @@ public class StagiaireDAOImpl extends DAO<Stagiaire> {
 	     } catch (SQLException e) {
 	         e.printStackTrace();
 	        }
+		 finally{
+			 try {
+	             if (preparedStatement != null)
+	            	 preparedStatement.close();
+	             if (resultat != null)
+	            	 resultat.close();
+	             if (connect != null)
+	            	 connect.close();
+				
+			} catch (SQLException ignore) {
+			}
+		 }
 	     return listStagiaire;
 	}
 

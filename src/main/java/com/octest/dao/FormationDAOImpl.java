@@ -43,14 +43,14 @@ public class FormationDAOImpl extends DAO<Formation>{
 	public ArrayList<Formation> listeOf(int id, int selecteur) {
 		ArrayList<Formation> listFormation= new ArrayList<Formation>();
 		PreparedStatement preparedStatement = null;
-		
+		ResultSet resultat=null;
 		 try {
 	    	 
 	    	 connect = DAOFactory.getInstance();
 	    	 preparedStatement = connect.prepareStatement
 	            		("SELECT * FROM formation WHERE factory_id=?;");
 	    	 preparedStatement.setInt(1, id);
-	         ResultSet resultat= preparedStatement.executeQuery();
+	         resultat= preparedStatement.executeQuery();
 	        
 	         while (resultat.next()) {
 	        	 int idFor= resultat.getInt("id") ;
@@ -63,6 +63,18 @@ public class FormationDAOImpl extends DAO<Formation>{
 	     } catch (SQLException e) {
 	         e.printStackTrace();
 	        }
+		 finally{
+			 try {
+				 if (resultat != null)
+					 resultat.close();
+	             if (preparedStatement != null)
+	            	 preparedStatement.close();
+	             if (connect != null)
+	            	 connect.close();
+				
+			} catch (SQLException ignore) {
+			}
+	     }
 	     return listFormation;
 	}
 

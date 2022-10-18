@@ -37,6 +37,7 @@ public class ListStagiaire extends HttpServlet {
 			this.getServletContext().getRequestDispatcher("/connection").forward(request, response);
 			}
 		else {
+			
 			int idFormation= Integer.parseInt(request.getParameter("idFormation"));
 			DAO<Stagiaire> fac = FactoryOfImpl.getStagiareDAO();
 			java.util.ArrayList <Stagiaire> listeStagiaire= fac.listeOf(idFormation, 0);

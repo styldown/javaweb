@@ -13,13 +13,14 @@ public class FactoryDAOImpl extends DAO<Factory> {
 	public Factory find(int id) {
 		PreparedStatement preparedStatement = null;
 		Factory factory=null;
+		ResultSet resultat=null;
 		 try {
 	    	 
 	    	 connect = DAOFactory.getInstance();
 	    	 preparedStatement = connect.prepareStatement
 	            		("SELECT * FROM factory WHERE id=?;");
 	    	 preparedStatement.setInt(1, id);
-	         ResultSet resultat= preparedStatement.executeQuery();
+	         resultat= preparedStatement.executeQuery();
 	        
 	         if (resultat.next()) {
 	        	 int idFac= resultat.getInt("id") ;
@@ -31,6 +32,18 @@ public class FactoryDAOImpl extends DAO<Factory> {
 	     } catch (SQLException e) {
 	         e.printStackTrace();
 	        }
+		 finally{
+			 try {
+				 if (resultat != null)
+					 resultat.close();
+	             if (preparedStatement != null)
+	            	 preparedStatement.close();
+	             if (connect != null)
+	            	 connect.close();
+				
+			} catch (SQLException ignore) {
+			}
+		 }
 	     return factory;
 	}
 

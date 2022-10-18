@@ -30,14 +30,17 @@ public class ListFormation extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session= request.getSession();
 		if(session.getAttribute("session")==null) {
-			this.getServletContext().getRequestDispatcher("/").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/connection").forward(request, response);
 			}
 		else {
-			Factory factory= (Factory) session.getAttribute("factory");
-			int idFactory= factory.getId();
-			DAO<Formation> fac = FactoryOfImpl.getFormationDAO();
-			java.util.ArrayList <Formation> listFormation= fac.listeOf(idFactory, 0);
-			session.setAttribute("listFormation", listFormation);
+			if(session.getAttribute("listFormation")==null) {
+				Factory factory= (Factory) session.getAttribute("factory");
+				int idFactory= factory.getId();
+				DAO<Formation> fac = FactoryOfImpl.getFormationDAO();
+				java.util.ArrayList <Formation> listFormation= fac.listeOf(idFactory, 0);
+				session.setAttribute("listFormation", listFormation);
+			
+			}
 			this.getServletContext().getRequestDispatcher("/WEB-INF/listeformation.jsp").forward(request, response);
 		}
 	}

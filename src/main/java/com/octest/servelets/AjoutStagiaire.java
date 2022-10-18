@@ -63,7 +63,7 @@ public class AjoutStagiaire extends HttpServlet {
 		Formulaire formulaire= Formulaire.getInstance();
 		formulaire.ajouterStagiaire(nom, prenom, adresse, email, tel, idFormation, idFactory );
 		this.getServletContext().getRequestDispatcher("/principale").forward(request, response);
-		 
+		session.setAttribute("listeStagiare",null);
 	}
 
 }
