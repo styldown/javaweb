@@ -5,12 +5,12 @@ public class Stagiaire {
 	private String nom;
 	private String prenom;
 	private String adresse;
-	private int tel;
+	private String tel;
 	private String email;
 	private int idFactory;
 	private int idFormation;
 	
-	public Stagiaire(int id, String nom, String prenom, String adresse, int tel, String email, int idFactory, int idFormation) {
+	public Stagiaire(int id, String nom, String prenom, String adresse, String tel, String email, int idFactory, int idFormation) {
 		this.id= id;
 		this.nom= nom;
 		this.prenom= prenom;
@@ -21,7 +21,7 @@ public class Stagiaire {
 		this.idFactory= idFactory;
 	}
 	
-	public Stagiaire(String nom, String prenom, String adresse, int tel, String email, int idFactory, int idFormation) {
+	public Stagiaire(String nom, String prenom, String adresse, String tel, String email, int idFactory, int idFormation) {
 		this.nom= nom;
 		this.prenom= prenom;
 		this.adresse= adresse;
@@ -49,10 +49,10 @@ public class Stagiaire {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public int getTel() {
+	public String getTel() {
 		return tel;
 	}
-	public void setTel(int tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 	public String getAdresse() {

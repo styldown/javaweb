@@ -9,15 +9,15 @@
 <body>
 
 	<%@ include file="header.jsp" %>
-			<center>
+			
 			<c:out value="${ erreur }" />
-			<form method="post" action="">
+			<form method="post" action="./connection">
             <label for="login">Login : </label>
-            <input type="text" name="login" id="login" /><br/>
+            <input type="text" name="login" id="login" required/><br/>
             <label for="login">Mot de pass : </label>
-            <input type="password" name="pwd" id="pwd" /><br/>
-            <input type="submit" value="connecter"/></center>
+            <input type="password" name="pwd" id="pwd" required/><br/>
+            <input type="submit" value="connecter" />
             </form>
-            </center>
+           
 </body>
 </html>

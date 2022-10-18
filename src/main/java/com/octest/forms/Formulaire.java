@@ -34,7 +34,7 @@ public  class Formulaire {
 	}
 
 	public void ajouterStagiaire(String nom, String prenom, String adresse, String email,
-			int tel, int idFormation,int idFactory) {
+			String tel, int idFormation,int idFactory) {
 		Stagiaire stagiaire= new Stagiaire(nom, prenom, adresse, tel, email, idFactory, idFormation);
 		DAO<Stagiaire> stagDao= FactoryOfImpl.getStagiareDAO();
 		stagDao.create(stagiaire);

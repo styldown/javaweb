@@ -32,7 +32,7 @@ public class AjoutStagiaire extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session= request.getSession();
 		if(session.getAttribute("session")==null) {
-			this.getServletContext().getRequestDispatcher("/").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/connection").forward(request, response);
 			}
 		else {
 			if(session.getAttribute("listeFormation")==null) {
@@ -56,7 +56,7 @@ public class AjoutStagiaire extends HttpServlet {
 		String prenom= request.getParameter("prenom");
 		String adresse= request.getParameter("adresse");
 		String email= request.getParameter("email");
-		int tel= Integer.parseInt(request.getParameter("tel"));
+		String tel= request.getParameter("tel");
 		int idFormation= Integer.parseInt(request.getParameter("idFormation"));
 		Factory factory= (Factory) session.getAttribute("factory");
 		int idFactory= factory.getId();

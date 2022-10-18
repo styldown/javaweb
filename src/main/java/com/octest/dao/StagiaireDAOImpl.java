@@ -28,7 +28,7 @@ public class StagiaireDAOImpl extends DAO<Stagiaire> {
 	        	 String nom= resultat.getString("nom");
 	        	 String prenom= resultat.getString("prenom");
 	        	 String adresse= resultat.getString("adresse");
-	        	 int tel=  resultat.getInt("tel");
+	        	 String tel=  resultat.getString("tel");
 	        	 String email= resultat.getString("email");
 	        	 int idFactory=  resultat.getInt("factory_id");
 	        	 int idFormation=  resultat.getInt("formation_id");
@@ -53,7 +53,7 @@ public class StagiaireDAOImpl extends DAO<Stagiaire> {
 	    	 preparedStatement.setString(1, obj.getNom());
 	    	 preparedStatement.setString(2, obj.getPrenom());
 	    	 preparedStatement.setString(3, obj.getAdresse());
-	    	 preparedStatement.setInt(4, obj.getTel());
+	    	 preparedStatement.setString(4, obj.getTel());
 	    	 preparedStatement.setString(5, obj.getEmail());
 	    	 preparedStatement.setInt(6, obj.getIdFactory());
 	    	 preparedStatement.setInt(7, obj.getIdFormation());
@@ -103,7 +103,7 @@ public class StagiaireDAOImpl extends DAO<Stagiaire> {
 	        	 String nom= resultat.getString("nom");
 	        	 String prenom= resultat.getString("prenom");
 	        	 String adresse= resultat.getString("adresse");
-	        	 int tel= resultat.getInt("tel");
+	        	 String tel= resultat.getString("tel");
 	        	 String email= resultat.getString("email");
 	        	 int idFormation= resultat.getInt("formation_id");
 	        	 int idFactory= resultat.getInt("factory_id");
