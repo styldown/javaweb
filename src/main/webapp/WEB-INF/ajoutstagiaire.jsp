@@ -5,11 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+	<header>
 	<%@ include file="header.jsp"%>
-	<p><a href="./principale">retour</a></p><br/>
+	</header>
+	<p><a href="./principale"><img src="images/precedent.jpg" alt="retour" height="50"  width="60"></a></p><br/>
 	<form method="post" action="./ajoutstagiaire">
 		<label for="nom">Nom :   </label> <br/>
 		<input type="text" name="nom" id="nom" required/><br /><br/>

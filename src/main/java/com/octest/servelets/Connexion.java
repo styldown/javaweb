@@ -16,7 +16,7 @@ import com.octest.dao.FactoryOfImpl;
 import com.octest.forms.Formulaire;
 
 
-@WebServlet (urlPatterns={"/connection", "/"})
+@WebServlet (urlPatterns={"/connection",""})
 public class Connexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

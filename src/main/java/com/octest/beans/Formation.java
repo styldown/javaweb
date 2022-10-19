@@ -11,6 +11,11 @@ public class Formation {
 		this.idFactory= idFactory;
 	}
 	
+	public Formation(String nom, int idFactory) {
+		this.nom= nom;
+		this.idFactory= idFactory;
+	}
+	
 	public int getId() {
 		return id;
 	}

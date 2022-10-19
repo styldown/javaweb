@@ -5,10 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+	<header>
 	<%@ include file="header.jsp" %>
-	<p><a href='./liststagiaire?idFormation=<c:out value="${ idFormation }"/>'>retour</a></p>
+	</header>
+	<p><a href='./liststagiaire?idFormation=<c:out value="${ idFormation }"/>'><img src="images/precedent.jpg" alt="retour" height="50"  width="60"></a></p>
 	<h3> <c:out value="${ stagiaire.getNom()} ${ stagiaire.getPrenom() }"/> </h3>
 	<p>
 		Adresse: <c:out value="${ stagiaire.getAdresse() }"/><br/>

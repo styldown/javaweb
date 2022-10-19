@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+html,body {
+	height:100%;
+ 	 width:100%;
+  	margin:0;
+}
+header
+{
+	border: 3px blue dashed;
+	color: blue;
+	height:20%; max-height:30%;
+    height: 20%;
+    text-align: center
+}
+
+#conteneur
+{
+    display: flex;
+}
+.element:nth-child(1)
+{
+   	width:20%; width:20%;
+    height: 20%;
+}
+.element:nth-child(2)
+{
+    flex: 1;
+}
+.element:nth-child(3)
+{
+   	width:20%; width:20%;
+    height: 20%;
+}
+
+#connexionform {
+	height:80%;
+  	width:100%;
+  	margin:0;
+   	display:flex;
+}
+
+.formulaire {
+  	margin:auto;
+  	
+}
+form{
+	font-size: 20px
+}
+.input_formulaire{
+	height:25px;
+}
+#erreur{
+	text-align: "center";
+	color:"blue";
+}

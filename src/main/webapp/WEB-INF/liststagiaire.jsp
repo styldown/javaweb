@@ -5,10 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+	<header>
 	<%@ include file="header.jsp" %>
-	<p><a href='./listformation'>retour</a></p>
+	</header>
+	<p><a href='./listformation'><img src="images/precedent.jpg" alt="retour" height="50"  width="60"></a></p>
 	<ul>
 	<c:forEach items="${ listeStagiare}" var="stagiaire">
     <li><a href='./stagiaire?idStagiaire=<c:out value="${ stagiaire.getId() }"/>'>  

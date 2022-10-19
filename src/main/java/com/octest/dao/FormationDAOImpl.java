@@ -17,8 +17,30 @@ public class FormationDAOImpl extends DAO<Formation>{
 
 	@Override
 	public Formation create(Formation obj) {
-		// TODO Auto-generated method stub
-		return null;
+		PreparedStatement preparedStatement = null;
+		 try {
+	    	 
+	    	 connect = DAOFactory.getInstance();
+	    	 preparedStatement = connect.prepareStatement
+	            		("INSERT INTO formation (nom, factory_id) VALUES (?,?)");
+	    	 preparedStatement.setString(1, obj.getNom());
+	    	 preparedStatement.setInt(2, obj.getIdFactory());
+	         preparedStatement.execute();
+	        	} 
+		 catch (SQLException e) {
+	         e.printStackTrace();
+	        }
+		 finally{
+			 try {
+	             if (preparedStatement != null)
+	            	 preparedStatement.close();
+	             if (connect != null)
+	            	 connect.close();
+				
+			} catch (SQLException ignore) {
+			}
+		 }
+		 return obj;
 	}
 
 	@Override

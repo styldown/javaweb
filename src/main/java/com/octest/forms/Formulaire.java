@@ -1,6 +1,7 @@
 package com.octest.forms;
 
 import com.octest.beans.Authentification;
+import com.octest.beans.Formation;
 import com.octest.beans.Stagiaire;
 import com.octest.beans.Utilisateur;
 import com.octest.dao.DAO;
@@ -38,6 +39,13 @@ public  class Formulaire {
 		Stagiaire stagiaire= new Stagiaire(nom, prenom, adresse, tel, email, idFactory, idFormation);
 		DAO<Stagiaire> stagDao= FactoryOfImpl.getStagiareDAO();
 		stagDao.create(stagiaire);
+	}
+
+	public void ajouterFormation(String nom, int idFactory) {
+		Formation formation= new Formation(nom, idFactory);
+		DAO<Formation> forDao= FactoryOfImpl.getFormationDAO();
+		forDao.create(formation);
+		
 	}
 
 }
