@@ -33,15 +33,13 @@ public class ListFormation extends HttpServlet {
 			this.getServletContext().getRequestDispatcher("/connection").forward(request, response);
 			}
 		else {
-			if(session.getAttribute("listFormation")==null) {
-				Factory factory= (Factory) session.getAttribute("factory");
-				int idFactory= factory.getId();
-				DAO<Formation> fac = FactoryOfImpl.getFormationDAO();
-				java.util.ArrayList <Formation> listFormation= fac.listeOf(idFactory, 0);
-				session.setAttribute("listFormation", listFormation);
+			Factory factory= (Factory) session.getAttribute("factory");
+			int idFactory= factory.getId();
+			DAO<Formation> fac = FactoryOfImpl.getFormationDAO();
+			java.util.ArrayList <Formation> listFormation= fac.listeOf(idFactory, 0);
+			session.setAttribute("listFormation", listFormation);
 			
-			}
-			this.getServletContext().getRequestDispatcher("/WEB-INF/listeformation.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/listeformation.jsp").forward(request, response);
 		}
 	}
 

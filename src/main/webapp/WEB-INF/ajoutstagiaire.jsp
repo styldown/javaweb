@@ -12,7 +12,8 @@
 	<%@ include file="header.jsp"%>
 	</header>
 	<p><a href="./principale"><img src="images/precedent.jpg" alt="retour" height="50"  width="60"></a></p><br/>
-	<form method="post" action="./ajoutstagiaire">
+	<script src="script/controleformulaire.js"></script>
+	<form name="formulaire" onsubmit="return confirmAjoutStagiaire()" method="post" action="./ajoutstagiaire">
 		<label for="nom">Nom :   </label> <br/>
 		<input type="text" name="nom" id="nom" required/><br /><br/>
 		<label for="prenom">Prenom : </label> <br/>
@@ -30,7 +31,7 @@
 					<c:out value="${ formation.getNom() }"/></option>
 			</c:forEach>
 		</select><br/><br/>
-		<input type="submit" value="ajouter" />
+		<input type="submit" value="confirmer" />
 	</form>
 </body>
 </html>

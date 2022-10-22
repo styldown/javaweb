@@ -11,11 +11,13 @@
 <header>
 	<%@ include file="header.jsp"%>
 	</header>
+	<script src="script/controleformulaire.js"></script>
 	<p><a href="./principale"><img src="images/precedent.jpg" alt="retour" height="50"  width="60"></a></p><br/>
-	<form method="post" action="./ajoutformation">
+	<form method="post" name="formulaire" onsubmit="return confirmAjoutFormation()" action="./ajoutformation">
 		<label for="nom">Nom de la formation:   </label> <br/>
 		<input type="text" name="nom" id="nom" required/><br /><br/>
-		<input type="submit" value="ajouter" />
+		<input type="submit" value="confirmer"  />
 	</form>
+	
 </body>
 </html>

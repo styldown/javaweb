@@ -5,6 +5,7 @@ html,body {
  	 width:100%;
   	margin:0;
 }
+
 header
 {
 	border: 3px blue dashed;
@@ -12,6 +13,7 @@ header
 	height:20%; max-height:30%;
     height: 20%;
     text-align: center
+    
 }
 
 #conteneur
@@ -53,4 +55,15 @@ form{
 #erreur{
 	text-align: "center";
 	color:"blue";
+}
+
+a:hover /* Apparence au survol des liens */
+{
+   font-size: 25px
+}
+
+div.liens{
+	width: 50%;
+	margin-left : auto ;
+    margin-right : auto ;
 }

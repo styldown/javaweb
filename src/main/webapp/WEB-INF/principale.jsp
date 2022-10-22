@@ -11,9 +11,12 @@
 	<header>
 		<%@ include file="header.jsp" %>
 	</header>
-	<p><a href="./listformation">
-		Liste des formations <mark><c:out value="${ factory.getNom() }"/></mark></a></p>
-	<p><a href="./ajoutstagiaire">Ajouter un nouveau stagiaire</a></p>
-	<p><a href="./ajoutformation">Ajouter une nouvelle formation</a></p>
+	<div class="liens">
+	<ul>
+		<li><a href="./listformation">Liste des formations <mark><c:out value="${ factory.getNom() }"/></mark></a></li>
+		<li><a href="./ajoutstagiaire">Ajouter un nouveau stagiaire</a></li>
+		<li><a href="./ajoutformation">Ajouter une nouvelle formation</a></li>
+	</ul>
+	</div>
 </body>
 </html>

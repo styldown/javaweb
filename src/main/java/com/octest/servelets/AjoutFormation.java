@@ -42,7 +42,7 @@ public class AjoutFormation extends HttpServlet {
 		int idFactory= factory.getId();
 		Formulaire formulaire= Formulaire.getInstance();
 		formulaire.ajouterFormation(nom, idFactory );
-		session.setAttribute("listeFormation",null);
+		session.setAttribute("listFormation",null);
 		this.getServletContext().getRequestDispatcher("/principale").forward(request, response);
 		
 	}
