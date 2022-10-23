@@ -21,7 +21,7 @@
 		<label for="adresse">Adresse : </label> <br/>
 		<textarea name="adresse" id="adresse" rows="3" cols="50" required></textarea><br /><br/>
 		<label for="email">Email :  </label> <br/>
-		<input type="email" name="email" id="email" required pattern="^[\w-\.]+@[\w][\w-][\w]+\.[\w]{2,}$"/><br/> <br/>
+		<input type="email" name="email" id="email" required pattern="^[\w-\.]+@[\w]+([\w-]+[\w]){0,}\.[\w]{2,}$"/><br/> <br/>
 		<label for="tel">Tel:   </label><br/>
 		<input type="tel" name="tel" id="tel" required pattern="^(\+33|0|0033)[1-9][0-9]{8}$"/><br/><br/>
 		<label for="idFormation">Choisir une formation</label> 

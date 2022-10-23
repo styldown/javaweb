@@ -12,7 +12,7 @@
 	<%@ include file="header.jsp" %>
 	</header>
 	<p><a href='./liststagiaire?idFormation=<c:out value="${ idFormation }"/>'><img src="images/precedent.jpg" alt="retour" height="50"  width="60"></a></p>
-	<h3> <c:out value="${ stagiaire.getNom()} ${ stagiaire.getPrenom() }"/> </h3>
+	<h3> <c:out value="${ stagiaire.getPrenom()} ${ stagiaire.getNom() }"/> </h3>
 	<p>
 		Adresse: <c:out value="${ stagiaire.getAdresse() }"/><br/>
 		Tel: <c:out value="${ stagiaire.getTel() }"/><br/>

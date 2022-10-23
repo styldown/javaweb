@@ -26,7 +26,7 @@ public  class Formulaire {
 		DAO<Authentification> authDao= FactoryOfImpl.getAuthentificationDAO();
 		authDao.lookFor(auth);
 		if(auth.getId() != 0) {
-			DAO<Utilisateur> util= FactoryOfImpl.getUtilisateur();
+			DAO<Utilisateur> util= FactoryOfImpl.getUtilisateurDAO();
 			utilisateur=util.find(auth.getIdUtilisateur());
 		}
 		

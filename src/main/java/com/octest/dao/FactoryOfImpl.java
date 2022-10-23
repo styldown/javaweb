@@ -12,11 +12,11 @@ public abstract class FactoryOfImpl {
 	        return new AuthentificationDAOImpl();
 		}
 		
-		public static DAO<Utilisateur> getUtilisateur(){
+		public static DAO<Utilisateur> getUtilisateurDAO(){
 			return new UtilisateurDAOImpl();
 		}
 		
-		public static DAO<Factory> getFactory(){
+		public static DAO<Factory> getFactoryDAO(){
 			return new FactoryDAOImpl();
 		}
 

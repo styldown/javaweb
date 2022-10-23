@@ -44,7 +44,7 @@ public class Connexion extends HttpServlet {
 			HttpSession session= request.getSession();
 			session.setAttribute("session", true);
 			session.setAttribute("utilisateur", utilisateur);
-			DAO<Factory> fac= FactoryOfImpl.getFactory();
+			DAO<Factory> fac= FactoryOfImpl.getFactoryDAO();
 			factory= fac.find(utilisateur.getIdFactory());
 			session.setAttribute("factory", factory);
 			this.getServletContext().getRequestDispatcher("/principale").forward(request, response);
